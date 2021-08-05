@@ -11,7 +11,7 @@ public class Administrator {
 	/** 名前 */
 	private String name;
 	/** メールアドレス */
-	private String mailAddres;
+	private String mailAddress;
 	/** パスワード */
 	private String password;
 	
@@ -20,14 +20,15 @@ public class Administrator {
 	}
 	
 	// コンストラクタ
-	public Administrator(Integer id, String name, String mailAddres, String password) {
+	public Administrator(Integer id, String name, String mailAddress, String password) {
+		super();
 		this.id = id;
 		this.name = name;
-		this.mailAddres = mailAddres;
+		this.mailAddress = mailAddress;
 		this.password = password;
 	}
 
-	// getter,setter
+	
 	public Integer getId() {
 		return id;
 	}
@@ -44,12 +45,12 @@ public class Administrator {
 		this.name = name;
 	}
 
-	public String getMailAddres() {
-		return mailAddres;
+	public String getMailAddress() {
+		return mailAddress;
 	}
 
-	public void setMailAddres(String mailAddres) {
-		this.mailAddres = mailAddres;
+	public void setMailAddress(String mailAddress) {
+		this.mailAddress = mailAddress;
 	}
 
 	public String getPassword() {
@@ -60,13 +61,9 @@ public class Administrator {
 		this.password = password;
 	}
 
-	// toString
 	@Override
 	public String toString() {
-		return "Administrator [id=" + id + ", name=" + name + ", mailAddres=" + mailAddres + ", password=" + password
+		return "Administrator [id=" + id + ", name=" + name + ", mailAddress=" + mailAddress + ", password=" + password
 				+ "]";
 	}
-	
-	
-
 }
