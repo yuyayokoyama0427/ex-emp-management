@@ -63,7 +63,7 @@ public class AdministratorRepository {
 		if (adminList.size() == 0) {
 			return null;
 		}
-		return adminList.get(0) ;
+		return adminList.get(0);
 	}
 	
 	
