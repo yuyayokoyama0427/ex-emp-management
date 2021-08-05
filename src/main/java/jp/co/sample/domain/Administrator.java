@@ -1,7 +1,7 @@
 package jp.co.sample.domain;
 
 /**
- * 管理者権限情報を表すドメイン
+ * 管理者権限情報を表すドメイン.
  * 
  * @author yuyayokoyama
  */

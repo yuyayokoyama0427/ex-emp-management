@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import jp.co.sample.domain.Employee;
 
 /**
- * employeesテーブルを操作するリポジトリ
+ * employeesテーブルを操作するリポジトリ.
  * 
  * @author yuyayokoyama
  *
@@ -46,9 +46,9 @@ public class EmployeeRepository {
 	};
 	
 	/**
-	 * 従業員一覧情報を取得する
+	 * 従業員一覧情報を取得する.
 	 * 
-	 * @return 従業員一覧情報
+	 * @return 従業員一覧情報 入社日の降順で並び替え
 	 */
 	public List<Employee> findAll(){
 		String sql = "SELECT id,name,image,gender,hireDate,mailAddress,zipCode,address,telephone,salary,characterisitcs,dependentsCount FROM "
@@ -63,8 +63,8 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 *主キー検索から従業員情報を取得する 
-	 * @param id
+	 *主キー検索から従業員情報を取得する.
+	 * @param id ID
 	 * @return 従業員情報
 	 */
 	public Employee load(Integer id) {
@@ -78,8 +78,8 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 * 従業員情報を変更する
-	 * @param employee
+	 * 従業員情報を変更する.
+	 * @param employee 従業員情報
 	 */
 	public void update(Employee employee) {
 		String updateSql = "UPDATE " + TABLE_NAME + " SET(name=:name,image=:image,gender=:gender,hireDate=:hireDate,mailAddress=:mailAddress,"
