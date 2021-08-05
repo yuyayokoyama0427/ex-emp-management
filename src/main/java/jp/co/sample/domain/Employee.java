@@ -19,7 +19,7 @@ public class Employee {
 	/** 入社日 */
 	private java.util.Date hireDate;
 	/** メールアドレス */
-	private String mailaddress;
+	private String mailAddress;
 	/** 郵便番号 */
 	private String zipCode;
 	/** 住所 */
@@ -37,8 +37,9 @@ public class Employee {
 	public Employee() {
 	}
 	
-	// コンストラクタ
-	public Employee(Integer id, String name, String image, String gender, Date hireDate, String mailaddress,
+	
+
+	public Employee(Integer id, String name, String image, String gender, Date hireDate, String mailAddress,
 			String zipCode, String address, String telephone, Integer salary, String characteristics,
 			Integer dependentsCount) {
 		this.id = id;
@@ -46,7 +47,7 @@ public class Employee {
 		this.image = image;
 		this.gender = gender;
 		this.hireDate = hireDate;
-		this.mailaddress = mailaddress;
+		this.mailAddress = mailAddress;
 		this.zipCode = zipCode;
 		this.address = address;
 		this.telephone = telephone;
@@ -54,6 +55,7 @@ public class Employee {
 		this.characteristics = characteristics;
 		this.dependentsCount = dependentsCount;
 	}
+
 
 	public Integer getId() {
 		return id;
@@ -95,12 +97,12 @@ public class Employee {
 		this.hireDate = hireDate;
 	}
 
-	public String getMailaddress() {
-		return mailaddress;
+	public String getMailAddress() {
+		return mailAddress;
 	}
 
-	public void setMailaddress(String mailaddress) {
-		this.mailaddress = mailaddress;
+	public void setMailAddress(String mailAddress) {
+		this.mailAddress = mailAddress;
 	}
 
 	public String getZipCode() {
@@ -154,11 +156,9 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", image=" + image + ", gender=" + gender + ", hireDate="
-				+ hireDate + ", mailaddress=" + mailaddress + ", zipCode=" + zipCode + ", address=" + address
+				+ hireDate + ", mailAddress=" + mailAddress + ", zipCode=" + zipCode + ", address=" + address
 				+ ", telephone=" + telephone + ", salary=" + salary + ", characteristics=" + characteristics
 				+ ", dependentsCount=" + dependentsCount + "]";
 	}
-	
-	
 
 }
