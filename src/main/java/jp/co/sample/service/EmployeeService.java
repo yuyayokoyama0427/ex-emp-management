@@ -10,7 +10,7 @@ import jp.co.sample.domain.Employee;
 import jp.co.sample.repository.EmployeeRepository;
 
 /**
- * 従業員情報一覧を全件検索する業務処理を行うメソッド
+ * 従業員情報を操作するサービス.
  * 
  * @author yuyayokoyama
  *
@@ -38,6 +38,14 @@ public class EmployeeService {
 	public Employee showDetails(Integer id) {
 		return employeeRepository.load(id);
 		
+	}
+	/**
+	 * 従業員情報を更新する.
+	 * 
+	 * @param employee 従業員情報
+	 */
+	public void Update(Employee employee) {
+		employeeRepository.update(employee);
 	}
 	
 	

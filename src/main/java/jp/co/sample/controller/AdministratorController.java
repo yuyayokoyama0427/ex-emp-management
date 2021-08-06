@@ -23,10 +23,11 @@ import jp.co.sample.service.AdministratorService;
 @Controller
 @RequestMapping("/")
 public class AdministratorController {
+	@Autowired
+	private HttpSession session;
 
 	@Autowired
 	private AdministratorService administratorService;
-	
 	
 	@ModelAttribute
 	public InsertAdministratorForm setUpInsertAdministratorForm() {
@@ -34,6 +35,11 @@ public class AdministratorController {
 		return insertAdministratorForm;
 	}
 	
+	@ModelAttribute
+	public LoginForm setUpForm(){
+		LoginForm loginForm = new LoginForm();
+		return loginForm;
+	}
 	/**
 	 * 管理者登録画面にフォワードする.
 	 * 
@@ -45,7 +51,7 @@ public class AdministratorController {
 	}
 	
 	/**
-	 * ロググイン画面へリダイレクトする.
+	 * 従業員を登録する.
 	 * 
 	 * @param form 入力情報
 	 * @return ログイン画面
@@ -58,14 +64,6 @@ public class AdministratorController {
 		return "redirect:/administrator/";
 	}
 	
-	
-	
-	
-	@ModelAttribute
-	public LoginForm setUpForm(){
-		LoginForm loginForm = new LoginForm();
-		return loginForm;
-	}
 	/**
 	 * ログイン画面をフォワード.
 	 * 
@@ -77,9 +75,13 @@ public class AdministratorController {
 	}
 	
 	
-	@Autowired
-	private HttpSession session;
-	
+	/**
+	 * ログインをする処理.
+	 * 
+	 * @param form フォーム
+	 * @param model モデル
+	 * @return ログイン後の一覧画面
+	 */
 	@RequestMapping("/login")
 	public String login(LoginForm form, Model model) {
 		Administrator administrator = administratorService.login(form.getMailAddress(), form.getPassword());

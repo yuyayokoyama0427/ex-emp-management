@@ -68,7 +68,7 @@ public class EmployeeRepository {
 	 * @return 従業員情報
 	 */
 	public Employee load(Integer id) {
-		String sql = "SELECT id,name,image,gender,hireDate,mailAddress,zipCode,address,telephone,salary,characterisitcs,dependentsCount FROM "
+		String sql = "SELECT id,name,image,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristics,dependents_count FROM "
 				+ TABLE_NAME + " WHERE id=:id";
 		
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
@@ -82,8 +82,8 @@ public class EmployeeRepository {
 	 * @param employee 従業員情報
 	 */
 	public void update(Employee employee) {
-		String updateSql = "UPDATE " + TABLE_NAME + " SET(name=:name,image=:image,gender=:gender,hireDate=:hireDate,mailAddress=:mailAddress,"
-				+ " zipCode=:zipCode,address=:address,telephone=:telephone,salary=:salary,characterist=:characterisitcs,dependentsCount=:dependentsCount"
+		String updateSql = "UPDATE " + TABLE_NAME + " SET(name=:name,image=:image,gender=:gender,hire_date=:hire_date,mail_address=:mail_address,"
+				+ " zip_code=:zip_code,address=:address,telephone=:telephone,salary=:salary,characteristics=:characteristics,dependents_count=:dependents_count"
 				+ " WHERE id=:id";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
 		template.update(updateSql, param);
