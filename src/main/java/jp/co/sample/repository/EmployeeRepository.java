@@ -82,9 +82,13 @@ public class EmployeeRepository {
 	 * @param employee 従業員情報
 	 */
 	public void update(Employee employee) {
-		String updateSql = "UPDATE " + TABLE_NAME + " SET(name=:name,image=:image,gender=:gender,hire_date=:hire_date,mail_address=:mail_address,"
-				+ " zip_code=:zip_code,address=:address,telephone=:telephone,salary=:salary,characteristics=:characteristics,dependents_count=:dependents_count"
+		String updateSql = "UPDATE " + TABLE_NAME + " SET name=:name,image=:image,gender=:gender,hire_date=:hireDate,mail_address=:mailAddress,"
+				+ " zip_code=:zipCode,address=:address,telephone=:telephone,salary=:salary,characteristics=:characteristics,dependents_count=:dependentsCount"
 				+ " WHERE id=:id";
+//		UPDATE employees SET name='川村',image='e1.png' ,gender='男',hire_date='2000/09/01',mail_address='kawamura',zip_code='111-1111',address='千葉県浦安市',telephone='000-0000-0000',salary=8000000,
+//				characteristics='山田太郎さんは明るく素直な性格です。リーダーシップを発揮します。周りに対する不満も聞いたことがありません。',
+//				dependents_count=3 WHERE id=10;
+
 		SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
 		template.update(updateSql, param);
 	}

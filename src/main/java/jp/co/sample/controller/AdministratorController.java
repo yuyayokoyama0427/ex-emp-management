@@ -61,7 +61,7 @@ public class AdministratorController {
 		Administrator admin = new Administrator();
 		BeanUtils.copyProperties(form, admin);
 		administratorService.insert(admin);
-		return "redirect:/administrator/";
+		return "redirect:/";
 	}
 	
 	/**
@@ -71,7 +71,7 @@ public class AdministratorController {
 	 */
 	@RequestMapping("/")
 	public String toLogin() {
-		return "/administrator/login.html";
+		return "/administrator/login";
 	}
 	
 	
@@ -93,8 +93,15 @@ public class AdministratorController {
 		session.setAttribute("administratorName", administrator);
 		return "forward:/employee/showList";
 	}
-		
 	
-	
+	/**
+	 * ログアウトをする.
+	 * @return ログイン画面
+	 */
+	@RequestMapping("/logout")
+	public String logout() {
+		session.invalidate();
+		return "redirect:/";
+	}
 	
 }

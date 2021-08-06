@@ -27,7 +27,7 @@ public class EmployeeService {
 	 * @return 従業員情報全件
 	 */
 	public List<Employee> showList(){
-		return employeeRepository.findAll();
+		return employeeRepository.findAll();	
 	}
 	
 	/**

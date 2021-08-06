@@ -45,7 +45,7 @@ public class EmployeeController {
 	public String showList(Model model) {
 		List<Employee> employeeList = employeeService.showList();
 		model.addAttribute("employeeList", employeeList);
-		return  "employee/list.html";
+		return  "employee/list";
 	}
 	
 	/**
@@ -60,7 +60,7 @@ public class EmployeeController {
 		Employee employee = employeeService.showDetails(intId); //int型のIdを戻す
 		
 		model.addAttribute("employee", employee);
-		return "employee/detail.html";
+		return "employee/detail";
 	}
 	
 	/**
@@ -72,18 +72,11 @@ public class EmployeeController {
 	public String update(UpdateEmployeeForm form) {
 		int intId = Integer.parseInt(form.getId()); //String型をint型に変換する
 		Employee employee = employeeService.showDetails(intId);
+		int intDependentsCount = Integer.parseInt(form.getDependentsCount());
+		employee.setDependentsCount(intDependentsCount);
 		employeeService.Update(employee);
-		return "/employee/showList";
+		return "redirect:/employee/showList";
 	}
 	
-	/**
-	 * ログアウトをする.
-	 * @return ログイン画面
-	 */
-	@RequestMapping("/logout")
-	public String logout() {
-		session.invalidate();
-		return "/";
-	}
 
 }
